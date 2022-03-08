@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -39,18 +40,24 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
+        <a
+          href="https://www.shecodes.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/images/logo.png" className="logo" alt="SheCodes Logo" />
+        </a>
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-9">
+            <div className="col-9 ">
               <input
                 type="search"
                 placeholder="Enter a city.."
-                className="form-control"
-                autoFocus="on"
+                className="form-control search-input"
                 onChange={handleCityChange}
               />
             </div>
-            <div className="col-3">
+            <div className="col-3 p-0">
               <input
                 type="submit"
                 value="Search"
@@ -60,6 +67,33 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
+        <footer>
+          This project was coded by{" "}
+          <a
+            href="https://www.shecodes.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SheCodes
+          </a>{" "}
+          and is{" "}
+          <a
+            href="https://github.com/shecodesio/weather"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            open-sourced on GitHub
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://shecodes-weather.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            hosted on Netlify
+          </a>
+        </footer>
       </div>
     );
   } else {
