@@ -41,11 +41,10 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <a
-          href="https://www.shecodes.io/"
-          target="_blank"
+          href="https://reactweatherrana.netlify.app/"
           rel="noopener noreferrer"
         >
-          <img src="/images/logo.png" className="logo" alt="SheCodes Logo" />
+          
         </a>
         <form onSubmit={handleSubmit}>
           <div className="row">
